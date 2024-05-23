@@ -21,8 +21,8 @@ public class ServiceOlliTest {
     @PersistenceContext
     jakarta.persistence.EntityManager em;
 
-    /*@Inject
-    ServiceOlli servicio;*/
+    @Inject
+    ServiceOlli servicio;
 
     @Test
     public void test_mapping_normalItem() {
@@ -55,7 +55,7 @@ public class ServiceOlliTest {
 	 * Crea una clase llamada ServiceOlli e indica
 	 * que es una dependencia Quarkus 
 	 */
-/**
+
     @Test
 	public void test_inyeccion_servicio() {
 		Assertions.assertThat(servicio).isNotNull();
@@ -66,7 +66,7 @@ public class ServiceOlliTest {
 	 * Devuelve la usuaria con el nombre indicado, si existe.
 	 * Si no existe, devuelve un objeto usuaria con sus propiedades
      * y valores como se indica en los casos test.
-	 *//**
+	 */
 	@Test
 	public void test_carga_usuaria() {
 		Assertions.assertThat(servicio).isNotNull();

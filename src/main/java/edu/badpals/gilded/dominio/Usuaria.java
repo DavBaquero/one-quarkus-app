@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 public class Usuaria extends PanacheEntityBase{
     @Id
         @Column(name="user_nom")
-        private String nombre;
+        private String nombre ="";
 
         @Column(name="user_prop")
         private int destreza;
