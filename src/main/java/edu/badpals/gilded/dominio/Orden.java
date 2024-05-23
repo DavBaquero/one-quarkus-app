@@ -21,7 +21,17 @@ public class Orden extends PanacheEntityBase{
     @OneToOne
         @JoinColumn(name = "ord_item")
         private Item item;
-        
+    
+    
+    public Orden() {}
+
+    
+    public Orden(Usuaria user, Item item) {
+        this.user = user;
+        this.item = item;
+    }
+
+
     public Long getId() {
         return id;
     }
