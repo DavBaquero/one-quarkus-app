@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import edu.badpals.gilded.dominio.Item;
 import edu.badpals.gilded.dominio.Orden;
+import edu.badpals.gilded.dominio.Item;
 import edu.badpals.gilded.dominio.Usuaria;
 
 import io.quarkus.test.junit.QuarkusTest;
@@ -16,12 +16,13 @@ import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.assertj.core.api.Assertions;
 
+@QuarkusTest
 public class ServiceOlliTest {
     @PersistenceContext
     jakarta.persistence.EntityManager em;
 
-    @Inject
-    ServiceOlli servicio;
+    /*@Inject
+    ServiceOlli servicio;*/
 
     @Test
     public void test_mapping_normalItem() {
@@ -31,7 +32,7 @@ public class ServiceOlliTest {
 		Assertions.assertThat(elixir.getQuality()).isEqualTo(7);
         Assertions.assertThat(elixir.getTipo()).isEqualTo("NormalItem");
     }
-/**
+
     @Test
 	public void test_mapping_usuaria() {
 		Usuaria elfo = em.find(Usuaria.class, "Doobey");

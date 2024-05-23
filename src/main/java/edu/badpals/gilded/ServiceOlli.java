@@ -4,10 +4,9 @@ import java.util.Optional;
 import edu.badpals.gilded.dominio.*;
 public class ServiceOlli {
     ServiceOlli (){}
-
+    
     public Item cargaItem(String nombre){
         Optional<Item> item = Item.findByIdOptional(nombre);
-        return item.isPresent() ? item.get(): new Item(); 
+        return item.isPresent() ? item.get() : new Item(); 
     }
-
 }
