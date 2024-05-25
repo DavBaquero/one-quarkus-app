@@ -14,7 +14,6 @@ import jakarta.inject.Inject;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
-import org.assertj.core.api.Assertions;
 
 @QuarkusTest
 public class ServiceOlliTest {
