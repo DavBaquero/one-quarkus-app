@@ -1,5 +1,8 @@
 package edu.badpals.gilded.dominio;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -51,8 +54,18 @@ public class Orden extends PanacheEntityBase{
         this.item = item;
     }
     
+    @Override
+    public String toString(){
+        return this.getUser().getNombre() + " " + this.getItem().getNombre();
+    }
 
-
+    public static List<Orden> findByUserName(String name){
+        List<Orden> lista_ordenes = Orden.listAll();
+        List<Orden> ordenPorUser = lista_ordenes.stream()
+                                                .filter(o -> o.getUser().getNombre().equalsIgnoreCase(name))
+                                                .collect(Collectors.toList());
+        return ordenPorUser.isEmpty() ? List.of() : ordenPorUser;
+    }
     
 
 }

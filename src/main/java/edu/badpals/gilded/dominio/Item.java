@@ -40,6 +40,6 @@ public class Item extends PanacheEntityBase{
             this.tipo = tipo;
         }
 
-    
+        
 
 }
