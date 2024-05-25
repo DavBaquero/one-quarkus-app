@@ -38,4 +38,24 @@ public class ServiceOlli {
         return orden;
 
     }
+
+    @Transactional
+    public List<Orden> comandaMultiple(String nom_user, List<String> productos){
+        Optional<Usuaria> user = Usuaria.findByIdOptional(nom_user);
+        if (user.isEmpty()){
+            return Collections.emptyList();
+        }
+
+        List<Orden> ordenes = new ArrayList<Orden>();
+
+        Orden orden = null;
+        for(String producto: productos){
+            orden = this.comanda(user.get().getNombre(), producto);
+            if (orden != null){
+                ordenes.add(orden);
+            }
+        }
+        return ordenes;
+
+    }
 }
