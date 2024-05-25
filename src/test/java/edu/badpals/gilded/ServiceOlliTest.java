@@ -145,7 +145,7 @@ public class ServiceOlliTest {
 	 * Guarda esta orden en su tabla en la base de datos.
 	 * 
      * El metodo devuelve la orden de tipo Orden creada.
-	 *//**
+	 */
 	@Test
 	@Transactional
 	public void test_comanda_ok() {
