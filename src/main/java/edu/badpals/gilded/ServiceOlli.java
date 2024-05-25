@@ -1,9 +1,12 @@
 package edu.badpals.gilded;
 import java.util.List;
 import java.util.Optional;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import edu.badpals.gilded.dominio.*;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
 
 @ApplicationScoped
 public class ServiceOlli {
@@ -21,5 +24,18 @@ public class ServiceOlli {
 
     public List<Orden> cargaOrden(String nombre){
         return Orden.findByUserName(nombre);
+    }
+
+    @Transactional
+    public Orden comanda(String nom_user, String nom_item){
+        Orden orden = null;
+        Optional<Usuaria> user = Usuaria.findByIdOptional(nom_user);
+        Optional<Item> item = Item.findByIdOptional(nom_item);
+        if (user.isPresent() && item.isPresent() && user.get().getDestreza() >= item.get().getQuality()){
+            orden = new Orden(user.get(), item.get());
+            orden.persist();
+        }
+        return orden;
+
     }
 }
