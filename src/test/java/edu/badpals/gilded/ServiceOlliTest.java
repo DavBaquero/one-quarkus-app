@@ -115,7 +115,7 @@ public class ServiceOlliTest {
 	 * Devuelve una lista con los pedidos de la usuaria 
 	 * con el nombre indicado, si existe.
      * Si no existe, devuelve una lista vacía.
-	 *//
+	 */
 
     @Test
 	public void test_carga_orden() {
@@ -125,8 +125,8 @@ public class ServiceOlliTest {
 		Assertions.assertThat(ordenes).hasSize(1);
 		Assertions.assertThat(ordenes.get(0).getUser().getNombre()).isEqualToIgnoringCase("Hermione");
 		Assertions.assertThat(ordenes.get(0).getItem().getNombre()).isEqualTo("+5 Dexterity Vest");
-		// Assertions.assertThat(ordenes).allMatch(orden -> orden.getUser().getNombre().equalsIgnoreCase("Hermione"));
-		// Assertions.assertThat(ordenes).allMatch(orden -> orden.getItem().getNombre().equalsIgnoreCase("+5 Dexterity Vest"));
+		Assertions.assertThat(ordenes).allMatch(orden -> orden.getUser().getNombre().equalsIgnoreCase("Hermione"));
+		Assertions.assertThat(ordenes).allMatch(orden -> orden.getItem().getNombre().equalsIgnoreCase("+5 Dexterity Vest"));
 	}
     
     @Test
