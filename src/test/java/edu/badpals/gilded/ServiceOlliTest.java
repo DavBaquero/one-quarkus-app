@@ -115,7 +115,7 @@ public class ServiceOlliTest {
 	 * Devuelve una lista con los pedidos de la usuaria 
 	 * con el nombre indicado, si existe.
      * Si no existe, devuelve una lista vacía.
-	 *//**
+	 *//
 
     @Test
 	public void test_carga_orden() {
